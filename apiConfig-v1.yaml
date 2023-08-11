@@ -1,0 +1,30 @@
+  # openapi2-functions.yaml
+  swagger: '2.0'
+  info:
+    title: fbmetricsapi firebase-metrics
+    description: API to fetch FB metrics from Bigquery DB
+    version: 1.0.0
+  schemes:
+    - https
+  produces:
+    - application/json
+  paths:
+    /users:
+      get:
+        summary: Get user metrics
+        operationId: users
+        x-google-backend:
+          address: https://us-central1-bqdataquery1.cloudfunctions.net/diksha-fbmetrics-function
+        security:
+        - api_key: []
+        responses:
+          '200':
+            description: Success
+            schema:
+              type: string
+  securityDefinitions:
+    # This section configures basic authentication with an API key.
+    api_key:
+      type: "apiKey"
+      name: "key"
+      in: "query"
