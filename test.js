@@ -7,9 +7,10 @@ async function test(fromDate, toDate) {
         result = await queryFBMetricsbyDateRange(fromDate, toDate);
     } else if (fromDate) {
         result = await queryFBMetrics(fromDate);
-    } else {
-        result = await queryFBMetrics('20230802');   
-    }
+    } 
+    // else {
+    //     result = await queryFBMetrics('20230802');   
+    // }
     console.log(result);
     return result;
 }
