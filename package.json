@@ -3,5 +3,9 @@
     "@google-cloud/bigquery": "^6.2.1",
     "@google-cloud/functions-framework": "^3.0.0",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "eslint-config-google": "^0.14.0"
   }
 }

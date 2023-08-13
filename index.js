@@ -1,10 +1,10 @@
 const functions = require('@google-cloud/functions-framework');
-const { queryFBMetrics, queryFBMetricsbyDateRange } = require("./query");
+const { queryFBMetrics, queryFBMetricsbyDateRange } = require('./query');
 
 functions.http('getUserMetrics', async (req, res) => {
-    console.log('========================BEGIN getUserMetrics=================================');
+    console.log('===================BEGIN getUserMetrics======================');
     const queryParams = Object.fromEntries(
-        Object.entries(req.query).map(([k, v]) => [k.toLowerCase(), v])
+        Object.entries(req.query).map(([k, v]) => [k.toLowerCase(), v]),
     );
     const { fromdate, todate, date } = queryParams;
 
@@ -20,12 +20,12 @@ functions.http('getUserMetrics', async (req, res) => {
     } else {
         result = {
             status: 'error',
-            body: "Invalid request. Incorrect parameters passed.",
-        }
+            body: 'Invalid request. Incorrect parameters passed.',
+        };
     }
     console.log(result);
 
-    if (result.status === "success") {
+    if (result.status === 'success') {
         res.send(result.body);
     } else {
         res.status(400).send(result.body);

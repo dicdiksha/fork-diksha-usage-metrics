@@ -1,4 +1,4 @@
-const { queryFBMetrics, queryFBMetricsbyDateRange } = require("./query");
+const { queryFBMetrics, queryFBMetricsbyDateRange } = require('./query');
 
 async function test() {
     let result = null;
@@ -12,12 +12,11 @@ async function test() {
         result = await queryFBMetricsbyDateRange(fromDate, toDate);
     } else if (fromDate) {
         result = await queryFBMetrics(fromDate);
-    } 
-    else {
+    } else {
         result = {
             status: 'error',
-            body: "Invalid request. Incorrect parameters passed.",
-        }
+            body: 'Invalid request. Incorrect parameters passed.',
+        };
     }
     console.log(result);
     return result;
